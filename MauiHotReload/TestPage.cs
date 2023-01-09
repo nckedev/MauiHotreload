@@ -12,14 +12,17 @@ namespace MauiHotreload
         public TestPage()
         {
             Load();
-            hotreload.shared.HotReloadService.UpdateEvent += (Type[] types) => { MainThread.BeginInvokeOnMainThread(() => Load()); };
+            hotreload.shared.HotReloadService.UpdateApplicatonEvent += (Type[] types) =>
+            {
+                MainThread.BeginInvokeOnMainThread(() => Load());
+            };
         }
 
         internal void Load()
         {
-            Content = new Label().Text("test");
-}
-}
+            Content = new Label().Text("testasdfafdasddddddddddd").Center();
+        }
+    }
 }
 
 

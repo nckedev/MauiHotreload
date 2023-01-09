@@ -8,14 +8,15 @@ namespace hotreload.shared
     public static class HotReloadService
     {
 
-        public static event Action<Type[]?>? UpdateEvent;
+        public static event Action<Type[]?>? UpdateApplicatonEvent;
 
 #if NET6_0_OR_GREATER && DEBUG
-        internal static void UpdateApplication(Type[] types)
+        internal static void ClearCache(Type[]? types) { }
+        internal static void UpdateApplication(Type[]? types)
         {
             if (types != null && types.Length > 0 && types[0] != null)
             {
-                UpdateEvent?.Invoke(types);
+                UpdateApplicatonEvent?.Invoke(types);
             }
         }
 #endif
