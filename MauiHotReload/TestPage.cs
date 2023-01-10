@@ -20,7 +20,20 @@ namespace MauiHotreload
 
         internal void Load()
         {
-            Content = new Label().Text("testasdfafdasddddddddddd").Center();
+            Content = new Grid()
+            {
+                BackgroundColor = Colors.Red,
+
+                Children =
+                { 
+                    new Label().Text(stringTest()).Center(),
+                }
+            };
+        }
+
+        internal string stringTest()
+        {
+            return "testing";
         }
     }
 }
